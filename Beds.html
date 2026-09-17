@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Paws - Dog Food</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+
+            <div class="logo">
+                🐾 Happy <span>Paws</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="pet.html">Pet</a></li>
+                <li><a href="petfood.html">Food</a></li>
+                <li><a href="accessory.html">Accessory</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Banner -->
+
+    <section class="container">
+
+        <div class="food-banner">
+            <h2>🐶 Premium Luxury Pet's Accessory</h2>
+
+            <p>
+                Give your furry friend the comfort and style they deserve. Discover premium collars, toys, beds, clothing and more, carefully selected for every happy paw.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Category -->
+
+    <section class="container">
+
+        <div class="food-category">
+
+            <a href="Collars.html" class="btn">
+                <i class="fa-solid fa-bone"></i>
+                <p>Collars</p>
+                
+            <a href="Leashes.html" class="btn ">
+                <i class="fa-solid fa-link"></i>
+                <p>Leashes</p>
+            </a>
+            <a href="Beds.html" class="btn">
+                <i class="fa-solid fa-bed"></i>
+                <p>Beds</p>
+            </a>
+            <a href="Toys.html" class="btn">
+                <i class="fa-solid fa-football"></i>
+                <p>Toys</p>
+            </a>
+            <a href="Clothes.html" class="btn">
+                <i class="fa-solid fa-shirt"></i>
+                <p>Clothes</p>
+            </a>
+            <a href="Bowls.html" class="btn">
+                <i class="fa-solid fa-bucket"></i>
+                <p>Bowls</p>
+            </a>
+            
+
+        </div>
+
+    </section>
+
+    <!-- Products -->
+
+    <section class="container">
+
+        <div class="products">
+
+            <div class="product-card">
+                <img src="https://i.pinimg.com/736x/ad/0c/7b/ad0c7bc4c8d39ef2ff86f84bda481bb0.jpg" alt="">
+                <div class="product-info">
+                    <h3>Luxury Bed</h3>
+                    <p class="price">$11.50</p>
+                    <button class="cart-btn">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.pinimg.com/736x/42/59/2a/42592aad97abfba9d69333dc4ac88ce2.jpg" alt="">
+                <div class="product-info">
+                    <h3>Premiem Bed </h3>
+                    <p class="price">$9.99</p>
+                    <button class="cart-btn">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.pinimg.com/736x/65/2c/26/652c266ba168773d6b8200385ba75faf.jpg" alt="">
+                <div class="product-info">
+                    <h3>Princess Pet Bed</h3>
+                    
+                    <p class="price">$9.99</p>
+                    <button class="cart-btn">Add To Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.pinimg.com/736x/80/2c/ea/802cea7c1b3c49fad3fa9565b74356dc.jpg" alt="">
+                <div class="product-info">
+                    
+                    <h3>Super Soft Bed</h3>
+                    <p class="price">$14.99</p>
+                    <button class="cart-btn">Add To Cart</button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button class="close-cart" id="closeCartBtn">&times;</button>
+    </div>
+
+    <div class="cart-body">
+        <div class="cart-item">
+            <img src="https://i.pinimg.com/736x/41/9c/78/419c78900009cead875044fd191e187f.jpg" alt="Leather Collar">
+            <div class="item-details">
+                <h4>Leather Collar</h4>
+                <p class="item-price">$24.99</p>
+                <div class="quantity-controls">
+                    <button class="qty-btn">-</button>
+                    <span class="qty-num">1</span>
+                    <button class="qty-btn">+</button>
+                </div>
+            </div>
+            <button class="remove-item-btn"><i class="fa-solid fa-trash-can"></i></button>
+        </div>
+    </div>
+
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Subtotal:</span>
+            <span>$24.99</span>
+        </div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+</div>
+    <script>
+    // 1. Sidebar Control UI Elements
+    const cartSidebar = document.getElementById('cartSidebar');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const cartIconBtn = document.getElementById('cart-icon-btn');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn, .cart-btn');
+
+    // 2. Target display containers inside your cart sidebar drawer
+    const cartBody = document.querySelector('.cart-body');
+    const cartTotalAmount = document.querySelector('.cart-total span:last-child');
+
+    // 3. Global Cart Storage Array (Holds items added across active click streams)
+    let cartItems = [];
+
+    function openCart(e) {
+        if(e) e.preventDefault();
+        cartSidebar.classList.add('active');
+        cartOverlay.classList.add('active');
+    }
+
+    function closeCart() {
+        cartSidebar.classList.remove('active');
+        cartOverlay.classList.remove('active');
+    }
+
+    // 4. Render Cart Contents Function (Draws layout list dynamically from array data)
+    function updateCartDisplay() {
+        // Clear old list HTML content to avoid stacking copies
+        cartBody.innerHTML = '';
+        let subtotal = 0;
+
+        if (cartItems.length === 0) {
+            cartBody.innerHTML = '<p style="text-align:center; color:#a1887f; margin-top:20px;">Your cart is empty!</p>';
+            cartTotalAmount.innerText = '$0.00';
+            return;
+        }
+
+        // Loop through current active items array list
+        cartItems.forEach((item, index) => {
+            const numericPrice = parseFloat(item.price.replace('$', ''));
+            const itemTotalCost = numericPrice * item.quantity;
+            subtotal += itemTotalCost;
+
+            // Generate clean markup for each item
+            const itemHTML = `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="item-details">
+                        <h4>${item.name}</h4>
+                        <p class="item-price">${item.price}</p>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="changeQuantity(${index}, -1)">-</button>
+                            <span class="qty-num">${item.quantity}</span>
+                            <button class="qty-btn" onclick="changeQuantity(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item-btn" onclick="removeCartItem(${index})">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+            `;
+            cartBody.insertAdjacentHTML('beforeend', itemHTML);
+        });
+
+        // Update the running subtotal summary string format output
+        cartTotalAmount.innerText = `$${subtotal.toFixed(2)}`;
+    }
+
+    // 5. Change Quantity Increment Adjustment Handler
+    window.changeQuantity = function(index, amount) {
+        cartItems[index].quantity += amount;
+        
+        // Remove tracking entirely if quantity dropped below 1 structure limit
+        if (cartItems[index].quantity <= 0) {
+            cartItems.splice(index, 1);
+        }
+        updateCartDisplay();
+    };
+
+    // 6. Direct Trash Bin Delete Trigger Removal Function 
+    window.removeCartItem = function(index) {
+        cartItems.splice(index, 1);
+        updateCartDisplay();
+    };
+
+    // 7. Click Capture Pipeline on Product Cards
+    addToCartButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Check layout box types to grab correct names/images/prices
+            const productBox = btn.closest('.product-box') || 
+                               btn.closest('.product-card') || 
+                               btn.closest('.featured-info')?.parentElement;
+
+            if (productBox) {
+                let productName = "";
+                if (productBox.classList.contains('product-card')) {
+                    const brand = productBox.querySelector('.product-info h2')?.innerText || "";
+                    const foodType = productBox.querySelector('.product-info h3')?.innerText || "";
+                    productName = brand + " " + foodType;
+                } else {
+                    productName = productBox.querySelector('h2')?.innerText || productBox.querySelector('h3')?.innerText || "";
+                }
+
+                const productPrice = productBox.querySelector('.price')?.innerText || 
+                                     productBox.querySelector('h4')?.innerText || 
+                                     productBox.querySelector('h3:not(.tag)')?.innerText || 
+                                     "$0.00";
+                const productImgSrc = productBox.querySelector('img')?.getAttribute('src');
+
+                // Check if this item is already inside the array
+                const existingItemIndex = cartItems.findIndex(item => item.name === productName.trim());
+
+                if (existingItemIndex > -1) {
+                    // Item already in cart, just increase quantity
+                    cartItems[existingItemIndex].quantity += 1;
+                } else {
+                    // New unique item, push new object configuration setting default tracking unit to 1
+                    cartItems.push({
+                        name: productName.trim(),
+                        price: productPrice.trim(),
+                        image: productImgSrc,
+                        quantity: 1
+                    });
+                }
+
+                // Refresh panel elements immediately and slide out cart view window
+                updateCartDisplay();
+                openCart();
+            }
+        });
+    });
+
+    // 8. Base Drawer Action Click Handlers 
+    if(cartIconBtn) cartIconBtn.addEventListener('click', () => openCart());
+    closeCartBtn.addEventListener('click', closeCart);
+    cartOverlay.addEventListener('click', closeCart);
+</script>
+
+    <!-- Footer -->
+
+    <footer>
+        <p>© 2026 Happy Paws. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
